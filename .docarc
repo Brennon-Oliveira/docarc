@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#teste
+
 if [ -f ./docaGit/.gitrc ]; then
 	source ./docaGit/.gitrc
 fi

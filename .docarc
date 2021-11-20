@@ -13,7 +13,13 @@ DocaLigthRed='\033[1;31m'
 DocaLigthBlue='\033[1;34m'
 DocaWhite='\033[1;37m'
 
-doca(){
+alertErro() {
+	if [ $1 = "git" ]; then
+		echo "$2 (doca git <Comando> -h)"
+	fi
+}
+
+doca() {
 	if [ $1 = "git" ]; then
 		docaGit $*
 	fi

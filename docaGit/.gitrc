@@ -4,7 +4,7 @@ if [ -f ./docaGit/.help ]; then
 	source ./docaGit/.help
 fi
 
-docaGit(){
+docaGit() {
 	if [ "$3" = '-h' -o "$3" = '--help' ]; then
 		gitHelp $2
 	elif [ "$2" = "commit" ]; then
@@ -14,59 +14,71 @@ docaGit(){
 	fi
 }
 
-docaGitCommit(){
+docaGitCommit() {
 	echo '-----------'
 	echo 'Doca commit'
-	echo '-----------'
 	typeBranch=''
 	branch=''
 	commit=''
-	# git stash
-	echo "git stash"
 	if [ $5 ]; then
+		echo "git stash:"
+		git stash
+		echo "-----------\n"
+		#echo "git stash"
 		typeBranch=$3
 		branch=$4
 		commit=$5
 		if [ "${typeBranch}" = 'sprint' -o "${typeBranch}" = "feature" ]; then
-    	echo 'sprint'
-		  # git checkout sprint
+			echo "git checkout sprint:"
+			git checkout sprint
+			echo "-----------\n"
 		elif [ "${typeBranch}" = 'bugfix' -o "${typeBranch}" = "homolog" ]; then
-		  echo 'homolog'
-		  # git checkout homolog
+			echo "git checkout homolog:"
+			git checkout homolog
+			echo "-----------\n"
 		elif [ "${typeBranch}" = 'preprod' ]; then
-		  echo 'preprod'
-		  # git checkout master-rc
+			echo "git checkout master-rc:"
+			git checkout master-rc
+			echo "-----------\n"
 		elif [ "${typeBranch}" = 'hotfix' -o "${typeBranch}" = "master" -o "${typeBranch}" = "prod" ]; then
-		  echo 'master'
-		  # git checkout master
+			echo "git checkout master:"
+			git checkout master
+			echo "-----------\n"
 		else
 			alertErro git 'Defina um tipo de branch válido'
 			return
 		fi
 	elif [ $4 ]; then
+		echo "git stash:"
+		git stash
+		echo "-----------\n"
+		#echo "git stash"
 		branch=$3
 		commit=$4
 	else
 		alertErro git "Defina a branch que deseja utilizar"
 		return
 	fi
-	
-	#git pull --rebase
-	echo "Git pull"
-	#git checkout -b "PLT-${branch}"
-	echo "Checkout na PLT-${branch}"
-	#git stash apply
-	echo "git stash apply"
-	#git commit "Fix PLT-${branch}: ${commit}" -n
-	echo "Commit: Fix PLT-${branch}: ${commit}"
-	#git push -u origin "${branch}"
-	echo "Push origin PLT-${branch}"
 
+	echo "git pull --rebase:"
+	git pull --rebase
+	echo "-----------\n"
+	echo "git branch 'PLT-${branch}':"
+	git branch "PLT-${branch}"
+	echo "-----------\n"
+	echo "git checkout 'PLT-${branch}':"
+	git checkout "PLT-${branch}"
+	echo "-----------\n"
+	echo "git stash apply:"
+	git stash apply
+	echo "-----------\n"
+	echo "${DocaWhite}Adicione os arquivos desejados para o commit."
+	echo "${DocaWhite}Então pressione ${DocaBlue}Enter ${DocaWhite}para prosseguir"
+	read
+	echo "git commit -m 'Fix PLT-${branch}: ${commit}' -n:"
+	git commit -m "Fix PLT-${branch}: ${commit}" -n
+	echo "-----------\n"
+	echo "git push -u origin '${branch}':"
+	git push -u origin ${branch}
+	echo "-----------\n"
 }
-
-alertErro(){
-	if [ $1 = "git" ]; then
-		echo "$2 (doca git <Comando> -h)"
-	fi
-}
-

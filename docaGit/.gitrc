@@ -75,7 +75,8 @@ docaGitCommit() {
 	echo "${DocaWhite}Adicione os arquivos desejados para o commit."
 	echo "${DocaWhite}Então pressione ${DocaBlue}Enter ${DocaWhite}para prosseguir"
 	read
-	echo "git commit -m 'Fix PLT-${branch}: ${commit}' -n:"
+	curDate=$(date +"%d/%m/%Y %H:%M")
+	echo "git commit -m 'Fix PLT-${branch}: ${commit} - ${curDate}' -n:"
 	git commit -m "Fix PLT-${branch}: ${commit}" -n
 	echo "-----------\n"
 	echo "git push -u origin 'PLT-${branch}':"

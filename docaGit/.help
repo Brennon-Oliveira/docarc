@@ -1,31 +1,30 @@
 #!/usr/bin/env bash
 
-
 # GIT ##################
-gitHelp(){
+gitHelp() {
 	if [ "$1" = 'commit' ]; then
 		commitHelp $1
 	else
-  	echo "${DocaWhite}--------------------------"
+		echo "${DocaWhite}--------------------------"
 		echo "${DocaWhite}Comandos do doca git:"
 		echo "\n${DocaWhite}* ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit${DocaWhite}: Cria uma branch e efetua o commit da tarefa (doca git commit --help)"
-  	echo "${DocaWhite}--------------------------"
+		echo "${DocaWhite}--------------------------"
 	fi
 }
 
-commitHelp(){
-  if [ $1 = 'commit' ]; then
-  	echo "${DocaWhite}--------------------------"
-  	echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}branch${DocaWhite}> <${DocaBlue}commit${DocaWhite}>"
-  	echo "\n ${DocaYellow}Branch: ${DocaWhite}Número da branch de desenvolvimento (Número da PLT)"
-  	echo " ${DocaYellow}Commit: ${DocaWhite}Mensagem de commit"
-  	echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}typeBranch${DocaWhite}> ${DocaWhite}<${DocaBlue}branch${DocaWhite}> ${DocaWhite}<${DocaBlue}commit${DocaWhite}>"
-  	echo "\n ${DocaYellow}TypeBranch: ${DocaWhite}Tipo da ramificação de desenvolvimento. Opções:"
-  	echo " * ${DocaLigthBlue}'feature' ${DocaWhite}ou ${DocaLigthBlue}'sprint'${DocaWhite}: Nova funcionalidade (sprint)"
-  	echo " * ${DocaLigthBlue}'bugfix' ${DocaWhite}ou ${DocaLigthBlue}'homolog'${DocaWhite}: Manutenção corretiva (mc)"
-  	echo " * ${DocaLigthBlue}'preprod'${DocaWhite}: Ambiente de pré-produção (PreProd)"
-  	echo " * ${DocaLigthBlue}'hotfix' ${DocaWhite}ou ${DocaLigthBlue}'master' ${DocaWhite}ou ${DocaLigthBlue}'prod'${DocaWhite}: Correção emergencial direto em produção (prod)\n"
-  	echo "${DocaWhite}--------------------------"
-  fi
+commitHelp() {
+	if [ $1 = 'commit' ]; then
+		echo "${DocaWhite}--------------------------"
+		echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}branch${DocaWhite}> <${DocaBlue}commit${DocaWhite}>"
+		echo "\n ${DocaYellow}Branch: ${DocaWhite}Número da branch de desenvolvimento (Número da PLT)"
+		echo " ${DocaYellow}Commit: ${DocaWhite}Mensagem de commit"
+		echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}typeBranch${DocaWhite}> ${DocaWhite}<${DocaBlue}branch${DocaWhite}> ${DocaWhite}<${DocaBlue}commit${DocaWhite}>"
+		echo "\n ${DocaYellow}TypeBranch: ${DocaWhite}Tipo da ramificação de desenvolvimento. Opções:"
+		echo " * ${DocaLigthBlue}'feature' ${DocaWhite}ou ${DocaLigthBlue}'sprint'${DocaWhite}: Nova funcionalidade (sprint)"
+		echo " * ${DocaLigthBlue}'bugfix' ${DocaWhite}ou ${DocaLigthBlue}'homolog'${DocaWhite}: Manutenção corretiva (mc)"
+		echo " * ${DocaLigthBlue}'preprod'${DocaWhite}: Ambiente de pré-produção (PreProd)"
+		echo " * ${DocaLigthBlue}'hotfix' ${DocaWhite}ou ${DocaLigthBlue}'master' ${DocaWhite}ou ${DocaLigthBlue}'prod'${DocaWhite}: Correção emergencial direto em produção (prod)\n"
+		echo "${DocaWhite}--------------------------"
+	fi
 }
 ######################

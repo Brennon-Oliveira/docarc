@@ -2,8 +2,8 @@
 
 #teste
 
-if [ -f ./docaGit/.gitrc ]; then
-	source ./docaGit/.gitrc
+if [ -f $HOME/docarc/docaGit/.gitrc ]; then
+	source $HOME/docarc/docaGit/.gitrc
 fi
 
 DocaRed='\033[0;31m'

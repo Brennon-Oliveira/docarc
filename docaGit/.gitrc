@@ -9,14 +9,30 @@ docaGit() {
 		gitHelp $2
 	elif [ "$2" = "commit" ]; then
 		docaGitCommit $*
+	elif [ "$2" = "pull" ]; then
+		docaGitPull $*
 	else
 		gitHelp
 	fi
 }
 
+docaGitPull() {
+	echo '-----------'
+	echo 'Doca Pull'
+	echo "git stash:"
+	git stash
+	echo "-----------\n"
+	echo 'git pull --rebase:'
+	git pull --rebase
+	echo '-----------'
+	echo "git stash apply:"
+	git stash apply
+	echo "-----------\n"
+}
+
 docaGitCommit() {
 	echo '-----------'
-	echo 'Doca commit'
+	echo 'Doca Commit'
 	typeBranch=''
 	branch=''
 	commit=''

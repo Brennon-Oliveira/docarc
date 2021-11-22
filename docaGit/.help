@@ -3,28 +3,37 @@
 # GIT ##################
 gitHelp() {
 	if [ "$1" = 'commit' ]; then
-		commitHelp $1
+		commitHelp
+	elif [ "$1" = 'pull' ]; then
+		pullHelp
 	else
 		echo "${DocaWhite}--------------------------"
-		echo "${DocaWhite}Comandos do doca git:"
-		echo "\n${DocaWhite}* ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit${DocaWhite}: Cria uma branch e efetua o commit da tarefa (doca git commit --help)"
+		echo " ${DocaWhite}Comandos do doca git:"
+		echo "\n ${DocaWhite}* ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit${DocaWhite}: Cria uma branch e efetua o commit da tarefa (doca git commit --help)"
+		echo "\n ${DocaWhite}Comandos do doca git:"
+		echo "\n ${DocaWhite}* ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}pull${DocaWhite}: Atualiza a branch atual (doca git pull --help)"
 		echo "${DocaWhite}--------------------------"
 	fi
 }
 
+pullHelp() {
+	echo "${DocaWhite}--------------------------"
+	echo " ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}pull"
+	echo "\n ${DocaWhite}Atualiza a branch atual com o comando ${DocaPurple}git ${DocaLigthRed}pull ${DocaLigthBlue}--rebase${DocaWhite}, para evitar erros"
+	echo "${DocaWhite}--------------------------"
+}
+
 commitHelp() {
-	if [ $1 = 'commit' ]; then
-		echo "${DocaWhite}--------------------------"
-		echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}branch${DocaWhite}> <${DocaBlue}commit${DocaWhite}>"
-		echo "\n ${DocaYellow}Branch: ${DocaWhite}Número da branch de desenvolvimento (Número da PLT)"
-		echo " ${DocaYellow}Commit: ${DocaWhite}Mensagem de commit"
-		echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}typeBranch${DocaWhite}> ${DocaWhite}<${DocaBlue}branch${DocaWhite}> ${DocaWhite}<${DocaBlue}commit${DocaWhite}>"
-		echo "\n ${DocaYellow}TypeBranch: ${DocaWhite}Tipo da ramificação de desenvolvimento. Opções:"
-		echo " * ${DocaLigthBlue}'feature' ${DocaWhite}ou ${DocaLigthBlue}'sprint'${DocaWhite}: Nova funcionalidade (sprint)"
-		echo " * ${DocaLigthBlue}'bugfix' ${DocaWhite}ou ${DocaLigthBlue}'homolog'${DocaWhite}: Manutenção corretiva (mc)"
-		echo " * ${DocaLigthBlue}'preprod'${DocaWhite}: Ambiente de pré-produção (PreProd)"
-		echo " * ${DocaLigthBlue}'hotfix' ${DocaWhite}ou ${DocaLigthBlue}'master' ${DocaWhite}ou ${DocaLigthBlue}'prod'${DocaWhite}: Correção emergencial direto em produção (prod)\n"
-		echo "${DocaWhite}--------------------------"
-	fi
+	echo "${DocaWhite}--------------------------"
+	echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}branch${DocaWhite}> <${DocaBlue}commit${DocaWhite}>"
+	echo "\n ${DocaYellow}Branch: ${DocaWhite}Número da branch de desenvolvimento (Número da PLT)"
+	echo " ${DocaYellow}Commit: ${DocaWhite}Mensagem de commit"
+	echo "\n ${DocaPurple}doca ${DocaLigthRed}git ${DocaYellow}commit ${DocaWhite}<${DocaBlue}typeBranch${DocaWhite}> ${DocaWhite}<${DocaBlue}branch${DocaWhite}> ${DocaWhite}<${DocaBlue}commit${DocaWhite}>"
+	echo "\n ${DocaYellow}TypeBranch: ${DocaWhite}Tipo da ramificação de desenvolvimento. Opções:"
+	echo " * ${DocaLigthBlue}'feature' ${DocaWhite}ou ${DocaLigthBlue}'sprint'${DocaWhite}: Nova funcionalidade (sprint)"
+	echo " * ${DocaLigthBlue}'bugfix' ${DocaWhite}ou ${DocaLigthBlue}'homolog'${DocaWhite}: Manutenção corretiva (mc)"
+	echo " * ${DocaLigthBlue}'preprod'${DocaWhite}: Ambiente de pré-produção (PreProd)"
+	echo " * ${DocaLigthBlue}'hotfix' ${DocaWhite}ou ${DocaLigthBlue}'master' ${DocaWhite}ou ${DocaLigthBlue}'prod'${DocaWhite}: Correção emergencial direto em produção (prod)\n"
+	echo "${DocaWhite}--------------------------"
 }
 ######################

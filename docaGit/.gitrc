@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [ -f ./docaGit/.help ]; then
-	source ./docaGit/.help
+if [ -f $HOME/docarc/docaGit/.help ]; then
+	source $HOME/docarc/docaGit/.help
 fi
 
 docaGit() {
